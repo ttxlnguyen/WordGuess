@@ -14,4 +14,8 @@ public class Attempts {
     public boolean noMoreAttempts() {
         return tries == 0;
     }
+
+    public int getTries() {
+        return tries;
+    }
 }
