@@ -17,7 +17,7 @@ public class GameLogic {
         private Attempts attempts;
 
         public void startGame(){
-            While(true){
+            While(true) {
                 callWord();
 
                 do {
@@ -25,8 +25,13 @@ public class GameLogic {
                     scanner.nextLine();
                     matchLetter(letter);
                 }
-                while (!attempts.noMoreAttempts() && !wordGuessed());
+                while (!wordGuessed() && !attempts.noMoreAttempts());
 
+                if(wordGuessed()) {
+                    winner();
+                } else {
+                    gameover();
+                }
             }
         }
 
@@ -49,6 +54,15 @@ public class GameLogic {
             }
         }
 
-        private
+        private boolean wordGuessed(){
+            return realWord.equals(currentWord);
+        }
 
+        private void winner() {
+            System.out.println("Winner! You guessed the word.");
+        }
+
+        private void gameover() {
+            System.out.println("You lost, the word is: " + realWord();
+        }
 }
